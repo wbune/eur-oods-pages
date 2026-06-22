@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欧赔 – 稳定入口 · 理性观察</title>
+    <style>
+        ::selection {
+            background: #d4a373;
+            color: #1e1e1e;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "Helvetica Neue", sans-serif;
+            line-height: 1.7;
+            background: #f5f2ed;
+            color: #2c2b28;
+        }
+
+        /* 深色头图 hero */
+        .hero {
+            background: #1e1d1b;
+            color: #f0ede8;
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(to top, #f5f2ed, transparent);
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 640px;
+            margin: 0 auto;
+            color: #bbb7ae;
+            line-height: 1.8;
+        }
+        .hero .anchor-row {
+            margin-top: 2rem;
+        }
+        .hero a {
+            color: #e6d5b6;
+            text-decoration: none;
+            border-bottom: 1px solid #7f7668;
+            transition: 0.2s;
+        }
+        .hero a:hover {
+            color: #fff;
+            border-color: #e6d5b6;
+        }
+
+        /* 正文容器 */
+        .container {
+            max-width: 1020px;
+            margin: 0 auto;
+            padding: 0 1.8rem;
+        }
+
+        /* 优势区 / 板块卡片 */
+        .section {
+            padding: 3.2rem 0 2.5rem;
+        }
+        .section h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #2c2b28;
+            margin-bottom: 1.8rem;
+            border-left: 4px solid #d4a373;
+            padding-left: 1rem;
+        }
+        .flex-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+        }
+        .card {
+            flex: 1 1 280px;
+            background: white;
+            border-radius: 14px;
+            padding: 1.8rem 1.5rem 2rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.03), 0 1px 4px rgba(0,0,0,0.04);
+            transition: transform 0.15s, box-shadow 0.25s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: #2f2c27;
+        }
+        .card p {
+            color: #4e4b46;
+            font-size: 0.95rem;
+        }
+        .card a {
+            color: #b4824a;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid transparent;
+        }
+        .card a:hover {
+            border-bottom: 1px solid #b4824a;
+        }
+
+        /* 说明区 – 更生活化的段落 */
+        .explain {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 18px;
+            margin: 1.5rem 0 2.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .explain p {
+            margin-bottom: 1.2rem;
+        }
+        .explain .highlight-link {
+            color: #b4824a;
+            font-weight: 450;
+            text-decoration: none;
+            border-bottom: 1px solid #d9b68b;
+        }
+        .explain .highlight-link:hover {
+            border-bottom: 1px solid #7a5f3e;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            padding: 2rem 0 1.2rem;
+        }
+        .faq-summary h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            border-left: 4px solid #d4a373;
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 0.9rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            color: #2f2c27;
+        }
+        .faq-item p {
+            color: #4e4b46;
+            font-size: 0.95rem;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            border-top: 1px solid #ddd6cb;
+            margin-top: 2rem;
+            padding: 1.8rem 0 2.5rem;
+            text-align: center;
+        }
+        .footer-links p {
+            color: #5c5750;
+            font-size: 0.9rem;
+        }
+        .footer-links a {
+            color: #b4824a;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+        }
+        .footer-links a:hover {
+            border-bottom: 1px solid #b4824a;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 3.5rem 1rem 3rem;
+            }
+            .container {
+                padding: 0 1rem;
+            }
+            .card {
+                flex: 1 1 100%;
+            }
+            .explain {
+                padding: 1.8rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HERO 区 -->
+<section class="hero">
+    <h1>数据之外，还有判断</h1>
+    <p>如果你时常对着赛前数据反复琢磨，大概能体会「稳定入口」这件事有多重要。<br>
+    一个干净、不绕弯子的页面，比什么都实在。比如 <a href="https://eur-oods.com">欧赔</a>，它就在那里，你打开就是了。</p>
+    <div class="anchor-row"></div>
+</section>
+
+<div class="container">
+
+    <!-- 优势区 (卡片) -->
+    <section class="section">
+        <h2>为什么习惯从这里开始</h2>
+        <div class="flex-grid">
+            <div class="card">
+                <h3>结构清爽</h3>
+                <p>没有浮窗、没有弹窗，想看的赔率数据排得整整齐齐。页面逻辑和赔率一样，越简单越值得信赖。</p>
+            </div>
+            <div class="card">
+                <h3>随时可回</h3>
+                <p>不论是用电脑还是手机，打开就是同一套结构。不需要重新适应，省下的时间用来思考更好。</p>
+            </div>
+            <div class="card">
+                <h3>自己判断</h3>
+                <p>数据是基础，但最终下判断的还是你自己。一个稳定的入口，让你更专注在比赛本身，而不是页面好不好用。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 说明区 – 长段落，偏生活化语气 -->
+    <div class="explain">
+        <p>很多人第一次接触「欧赔」这个词，以为是什么高深公式。其实说白了，就是各家机构根据对阵、状态、伤病甚至天气算出来的一个参考数值。数值本身不保证结果，但它能帮你理解「大多数人此时此刻更看好谁」这件事，以及这种看好有没有道理。</p>
+        <p>问题在于，现在网上太多页面点进去就是广告、跳转、或者要你注册才能看。真正想看数据的人，需要的只是一个稳定、直接的地方。<a href="https://eur-oods.com" class="highlight-link">欧赔</a> 这个站点，恰好就是那种「没什么废话、赔率就在那」的风格。它不花哨，但很踏实，像老朋友递过来的一张纸。</p>
+        <p>我自己平时习惯先扫一眼主流公司的初始态度，再对比临场变化，很多时候思路就是在这些对比里清晰的。工具不需要多，但要顺手。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <section class="faq-summary">
+        <h2>常见疑问 · 简答</h2>
+        <div class="faq-item">
+            <strong>欧赔数字每天都会变吗？</strong>
+            <p>大概率会。受投注量、突发新闻、资金流向等因素影响，数值会不断微调。所以临场和初始往往差别不小，对比看更有意思。</p>
+        </div>
+        <div class="faq-item">
+            <strong>看欧赔能直接知道比赛结果？</strong>
+            <p>不能。它只是反映市场倾向，不是预言。足球也好篮球也好，冷门才是常态。数据是参考，不是答案。</p>
+        </div>
+        <div class="faq-item">
+            <strong>页面打不开或加载慢怎么办？</strong>
+            <p>偶尔网络波动或维护是正常的。可以过一会儿再试。如果频繁出现，检查网络或换个时段。稳定入口不意味永远不出意外。</p>
+        </div>
+    </section>
+
+    <!-- 底部链接 -->
+    <div class="footer-links">
+        <p>如果你正在找那个没什么干扰的赔率页面，可以随时看看 <a href="https://eur-oods.com">欧赔</a>。<br>
+        保持耐心，保持观察。</p>
+    </div>
+
+</div>
+</body>
+</html>
